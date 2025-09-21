@@ -1,10 +1,10 @@
 "use client"
 
 import { signIn, signOut, useSession } from "next-auth/react"
+import Link from "next/link"
 
 export default function Home() {
   const { data: session } = useSession()
-
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50">
       <div className="p-8 rounded-2xl shadow-lg bg-white max-w-sm w-full text-center">
@@ -14,12 +14,19 @@ export default function Home() {
               👋 Welcome, <span className="text-indigo-600">{session.user?.name}</span>
             </h1>
             <p className="text-gray-500 mt-2">{session.user?.email}</p>
+            <div className="flex gap-3">
             <button
               onClick={() => signOut()}
               className="mt-6 w-full py-2 px-4 bg-red-500 hover:bg-red-600 text-white font-medium rounded-lg shadow-md transition duration-300"
             >
               Sign out
             </button>
+            <Link href="/Todos"
+              className="mt-6 w-full py-2 px-4 bg-red-500 hover:bg-red-600 text-white font-medium rounded-lg shadow-md transition duration-300"
+            >
+              CreateTodo
+            </Link>
+            </div>
           </div>
         ) : (
           <div>

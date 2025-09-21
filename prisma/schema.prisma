@@ -1,7 +1,5 @@
-
 generator client {
   provider = "prisma-client-js"
-  output   = "../src/generated/prisma"
 }
 
 datasource db {
@@ -13,7 +11,7 @@ model User{
   id Int @id @default(autoincrement())
   email String @unique
   name String
-  todo Todo[]
+  // todo Todo[]
 }
 
 model Todo{
@@ -22,6 +20,6 @@ model Todo{
   EveningTask String
   NightTask String
   publish Boolean @default(false)
-  author User @relation(fields: [authorId],references: [id])
-  authorId Int
+  // author User @relation(fields: [authorId],references: [id])
+  // authorId Int
 }
